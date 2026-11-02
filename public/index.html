@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111512">
+  <meta name="description" content="Một không gian chung để bạn, Codex và Antigravity cùng xây dựng ý tưởng.">
+  <title>Team Chat — Cùng nhau tạo nên</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="Team Chat trang chủ"><span class="brand-mark">t<span>↗</span></span>teamchat<span class="beta">LAB</span></a>
+      <div class="workspace"><span class="workspace-icon">✳</span><div><strong>Creative workspace</strong><small>Ý tưởng thành hiện thực</small></div></div>
+      <div class="nav-label">KHÔNG GIAN CHUNG</div>
+      <div class="channel active"><span>#</span> thiết-kế-web <span class="channel-dot"></span></div>
+      <button class="nav-button" id="guideButton"><span>⌘</span> Hướng dẫn kết nối <span class="arrow">↗</span></button>
+      <div class="sidebar-note"><span class="note-orbit">◎</span><strong>Ba góc nhìn.<br>Một ý tưởng lớn.</strong><p>Nơi bạn và các cộng sự AI cùng bàn bạc, xây dựng và hoàn thiện.</p><div class="mini-avatars"><i class="user-avatar">T</i><i class="codex-avatar">C</i><i class="anti-avatar">A</i><span>cùng tạo nên</span></div></div>
+      <div class="sidebar-bottom"><span class="avatar user-avatar">T</span><div><strong>Bạn</strong><small>Chủ dự án</small></div><span class="online-dot"></span></div>
+    </aside>
+
+    <main>
+      <header class="room-header"><div><div class="breadcrumb">WORKSPACE <span>/</span> PHÒNG CHAT</div><h1><span>#</span> thiết-kế-web <span class="room-tag">NHÓM CHUNG</span></h1></div><button class="icon-button mobile-guide" id="mobileGuide" aria-label="Hướng dẫn kết nối">?</button><button class="outline-button" id="exportButton"><span>↓</span> Xuất hội thoại</button></header>
+      <div class="toolbar"><div class="live-label"><span class="connection-dot" id="connectionDot"></span><span id="connectionLabel" role="status">Đang kết nối…</span></div><label class="search-box"><span>⌕</span><input id="search" placeholder="Tìm trong cuộc trò chuyện…" aria-label="Tìm tin nhắn"><kbd>/</kbd></label></div>
+      <div class="conversation" id="conversation" role="log" aria-label="Cuộc trò chuyện">
+        <section class="welcome" id="welcome"><div class="welcome-symbol">✳</div><div class="eyebrow">MỌI ĐIỀU HAY ĐỀU BẮT ĐẦU TỪ MỘT CUỘC TRÒ CHUYỆN</div><h2>Cùng nhau tạo nên<span>.</span></h2><p>Chia sẻ ý tưởng. Trao đổi với Codex và Antigravity.<br>Biến những gì bạn hình dung thành một website.</p><div class="welcome-badges"><span>✦ Ý tưởng</span><span>⌘ Thiết kế</span><span>↗ Xây dựng</span></div></section>
+        <div class="day-divider"><span>CUỘC TRÒ CHUYỆN CỦA NHÓM</span></div>
+        <div id="messages"></div>
+        <div id="noResults" hidden>Không có tin nhắn phù hợp.</div>
+      </div>
+      <div class="composer-area"><div class="starter-prompts" id="starterPrompts"><button data-prompt="Mình muốn làm một website. Hãy giúp mình chốt mục tiêu, đối tượng và phong cách thiết kế.">✦ Bắt đầu ý tưởng</button><button data-prompt="Hãy cùng đề xuất bố cục trang chủ và giải thích cách người dùng sẽ sử dụng website.">▦ Bàn về bố cục</button><button data-prompt="Hãy review thiết kế hiện tại và ghi rõ những điểm cần cải thiện trên desktop và mobile.">↗ Review thiết kế</button></div><form class="composer" id="chatForm"><div class="recipient-row"><span>Gửi tới</span><button type="button" class="recipient selected" data-to="all">Cả nhóm</button><button type="button" class="recipient" data-to="codex">Codex</button><button type="button" class="recipient" data-to="antigravity">Antigravity</button></div><textarea id="draft" maxlength="12000" rows="2" placeholder="Chia sẻ ý tưởng của bạn với nhóm…" aria-label="Nội dung tin nhắn"></textarea><div class="composer-footer"><span class="composer-hint">↵ để gửi <span>·</span> Shift + Enter để xuống dòng</span><button class="send-button" type="submit" id="sendButton">Gửi tin <span>↗</span></button></div></form><p class="honesty-note"><span>◎</span> AI trả lời khi được kết nối và chạy tác vụ. Web không tự tạo phản hồi.</p></div>
+    </main>
+
+    <aside class="details"><div class="details-heading">TRONG KHÔNG GIAN NÀY <span>03</span></div><div class="member"><span class="avatar user-avatar">T</span><div><strong>Bạn <span class="you-tag">BẠN</span></strong><small>Người định hướng</small></div><span class="online-dot"></span></div><div class="member"><span class="avatar codex-avatar">C</span><div><strong>Codex</strong><small id="codexState">Chưa có tin nhắn</small></div><span class="offline-dot"></span></div><div class="member"><span class="avatar anti-avatar">A</span><div><strong>Antigravity</strong><small id="antiState">Chưa có tin nhắn</small></div><span class="offline-dot"></span></div><div class="section-rule"></div><div class="details-heading">CÁCH NHÓM LÀM VIỆC</div><ol class="workflow"><li><span>01</span><div><strong>Bạn đưa ý tưởng</strong><p>Mục tiêu, cảm hứng và điều bạn muốn tạo ra.</p></div></li><li><span>02</span><div><strong>Cùng trao đổi</strong><p>Hai cộng sự đọc hội thoại và đóng góp khi được giao việc.</p></div></li><li><span>03</span><div><strong>Xây dựng & hoàn thiện</strong><p>Thống nhất, triển khai, kiểm tra và bàn giao.</p></div></li></ol><div class="connection-card"><span class="plug-icon">⌁</span><h3>Kết nối cộng sự AI</h3><p>Chia sẻ địa chỉ API để Codex và Antigravity đọc, gửi tin vào cùng một phòng.</p><button id="connectButton">Xem cách kết nối <span>↗</span></button></div><div class="details-foot">MỘT PHÒNG CHAT. CÙNG MỘT HƯỚNG ĐI.</div></aside>
+  </div>
+  <dialog id="guideDialog"><div class="dialog-header"><span class="eyebrow">KẾT NỐI KHÔNG GIAN</span><button id="closeDialog" class="icon-button" aria-label="Đóng">×</button></div><h2>Mời cộng sự vào nhóm.</h2><p>Server lưu tin chung. Gửi hướng dẫn dưới đây cho mỗi AI để đọc và trả lời khi bạn giao việc.</p><pre id="agentInstructions"></pre><button class="primary-button" id="copyInstructions">Sao chép hướng dẫn</button><div class="token-section"><label for="tokenInput">Token phòng chat (chỉ cần nếu server có CHAT_TOKEN)</label><div><input id="tokenInput" type="password" autocomplete="off" placeholder="Nhập token, không đưa lên GitHub"><button id="saveToken" class="outline-button">Kết nối</button></div><small>Token chỉ giữ trong phiên tab này. Tên người gửi do client khai báo; chưa xác thực riêng từng AI.</small></div><p class="dialog-note">Địa chỉ localhost chỉ dùng trên cùng máy. GitHub lưu mã nguồn; GitHub Pages không chạy được API Node.js. Chưa có cơ chế tự đánh thức hoặc điều phối AI.</p></dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>

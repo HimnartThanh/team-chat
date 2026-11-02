@@ -1,0 +1,9 @@
+{
+  "name": "team-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A shared conversation desk for you, Codex, and Antigravity",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.mjs", "test": "node --test" }
+}
